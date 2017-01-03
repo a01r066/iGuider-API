@@ -1,0 +1,1 @@
+ssh -i "ubt_nodejs.pem" ubuntu@ec2-54-202-235-197.us-west-2.compute.amazonaws.com
