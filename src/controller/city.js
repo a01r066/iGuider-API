@@ -12,13 +12,14 @@ export default({ config, db }) => {
   // '/v1/city/add'  - Create
   api.post('/add', (req, res) => {
     let newCity = new City();
-    newCity.name = req.body.name;
-    
+    newCity.city_id = req.body.city_id;
+    newCity.city_name = req.body.city_name;
+
     newCity.save(function(err){
       if(err){
         res.send(err);
       }
-      res.json({ message: newCity.name + ' added successfully!'})
+      res.json({ message: newCity.city_name + ' added successfully!'})
     });
   });
 
@@ -35,8 +36,8 @@ export default({ config, db }) => {
 
   // get city from specific cityid
   // '/v1/city/:cityid' - Read
-  api.get('/:id', (req, res) => {
-    City.findById(req.params.id, (err, city) => {
+  api.get('/:city_id', (req, res) => {
+    City.findById(req.params.city_id, (err, city) => {
       if (err) {
         res.send(err);
       }

@@ -7,6 +7,7 @@ import category from '../controller/category';
 import subcategory from '../controller/subcategory';
 import account from '../controller/account';
 import city from '../controller/city';
+import country from '../controller/country';
 import review from '../controller/review';
 
 let router = express();
@@ -23,6 +24,7 @@ initializeDb(db => {
   router.use('/subcategory', subcategory({ config, db }));
   router.use('/account', account({ config, db }));
   router.use('/city', city({ config, db }));
+  router.use('/country' country({ config, db }));
   router.use('/review', review({ config, db }));
 });
 

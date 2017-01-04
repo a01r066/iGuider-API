@@ -43,7 +43,7 @@ export default({ config, db }) => {
       if (err) {
         res.send(err);
       }
-      res.json({ message: newLocation.name + ' saved successfully' });
+      res.json({ message: newLocation.location_name + ' saved successfully' });
     });
   });
 
@@ -72,7 +72,7 @@ export default({ config, db }) => {
   // '/v1/location/name/:$name'
   api.get('/name/:name', (req, res) => {
     // Location.find({"name": {$regex : ".*"+req.params.name+".*"}}, (err, locations) => {
-    Location.find({"name": {$regex : ".*"+req.params.name+".*", $options: 'i'}}, (err, locations) => {
+    Location.find({"name": {$regex : ".*"+req.params.location_name+".*", $options: 'i'}}, (err, locations) => {
       if (err) {
         res.send(err);
       }
@@ -100,10 +100,11 @@ export default({ config, db }) => {
       if (err) {
         res.send(err);
       }
-      newLocation.location_name = req.body.name;
+      newLocation.location_name = req.body.location_name;
       newLocation.location_translated_name = req.body.location_translated_name;
       newLocation.addressline = req.body.addressline;
       newLocation.city_id = req.body.city_id;
+      newLocation.telephone = req.body.telephone;
       newLocation.country_id = req.body.country_id;
       newLocation.countryisocode = req.body.countryisocode;
       newLocation.star_rating = req.body.star_rating;
@@ -127,7 +128,7 @@ export default({ config, db }) => {
         if (err) {
           res.send(err);
         }
-        res.json({ message: location.name + ' info updated' });
+        res.json({ message: location.location_name + ' info updated' });
       });
     });
   });
@@ -203,8 +204,8 @@ export default({ config, db }) => {
 
   // get locations from specific subcategoryid
   // '/api/v1/location/subcategory/:subcategoryid'
-  api.get('/subcategory/:subcategoryid', (req, res) => {
-    Location.find({subcategoryid: req.params.subcategoryid}, (err, locations) => {
+  api.get('/subcategory/:subcategory_id', (req, res) => {
+    Location.find({subcategory_id: req.params.subcategory_id}, (err, locations) => {
       if (err) {
         res.send(err);
       }
