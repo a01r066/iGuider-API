@@ -227,7 +227,7 @@ export default({ config, db }) => {
   // get locations from specific city
   // '/api/v1/location/city/:cityid'
   api.get('/city/:city_id', (req, res) => {
-    Location.find({ cityid: req.params.city_id }, (err, locations) => {
+    Location.find({ city_id: req.params.city_id }, (err, locations) => {
       if(err){
         res.send(err);
       }
