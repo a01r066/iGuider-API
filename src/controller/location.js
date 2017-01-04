@@ -70,9 +70,9 @@ export default({ config, db }) => {
 
   // Find locations by name
   // '/v1/location/name/:$name'
-  api.get('/name/:name', (req, res) => {
+  api.get('/name/:location_name', (req, res) => {
     // Location.find({"name": {$regex : ".*"+req.params.name+".*"}}, (err, locations) => {
-    Location.find({"name": {$regex : ".*"+req.params.location_name+".*", $options: 'i'}}, (err, locations) => {
+    Location.find({"location_name": {$regex : ".*"+req.params.location_name+".*", $options: 'i'}}, (err, locations) => {
       if (err) {
         res.send(err);
       }
