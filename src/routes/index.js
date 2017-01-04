@@ -24,7 +24,7 @@ initializeDb(db => {
   router.use('/subcategory', subcategory({ config, db }));
   router.use('/account', account({ config, db }));
   router.use('/city', city({ config, db }));
-  router.use('/country' country({ config, db }));
+  router.use('/country', country({ config, db }));
   router.use('/review', review({ config, db }));
 });
 
