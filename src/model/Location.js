@@ -11,6 +11,7 @@ let LocationSchema = new Schema({
   location_translated_name: String,
   addressline: String,
   city_id: Number,
+  telephone: String,
   country_id: Number,
   countryisocode: String,
   star_rating: Number,

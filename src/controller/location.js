@@ -19,6 +19,7 @@ export default({ config, db }) => {
     newLocation.location_translated_name = req.body.location_translated_name;
     newLocation.addressline = req.body.addressline;
     newLocation.city_id = req.body.city_id;
+    newLocation.telephone = req.body.telephone;
     newLocation.country_id = req.body.country_id;
     newLocation.countryisocode = req.body.countryisocode;
     newLocation.star_rating = req.body.star_rating;
